@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-ui-router.js"></script>
+		
+	</head>
+	<body ng-app="myapp">
+		<div class="Content_max">
+			<div class="content">
+				<img src="img/tmy.png" style="float: right;"/>
+	    <ul class="oul">
+			<li ui-sref="index1">关于我</li>
+			<li ui-sref="index2">专业技能</li>
+			<li ui-sref="index3">教育经历</li>
+			<li ui-sref="index4">工作经历</li>
+			<li ui-sref="index">自我评价</li>
+		</ul>
+</div>
+			<div ui-view class="views"></div>
+		</div>
+	</body>
+	<script>
+		var app=angular.module('myapp',["ui.router"]);
+			app.config(function($stateProvider,$urlRouterProvider){
+				$stateProvider.state('index',{
+					url:'/index',
+					templateUrl:'pingjia.html'
+				}).state('index1',{
+					url:'/about',
+					templateUrl:'about.html'
+				})
+				.state('index2',{
+					url:'/zhuanye',
+					templateUrl:'zhuanye.html'
+				})
+				.state('index3',{
+					url:'/jiaoyu',
+					templateUrl:'jiaoyu.html'
+				})
+				.state('index4',{
+					url:'/work',
+					templateUrl:'work.html'
+				})
+				
+				$urlRouterProvider.when("","/about")
+		})
+	</script>
+</html>
